@@ -1,3 +1,9 @@
+keys.py
+notebooks/cache/*
+notebooks/data/*
+notebooks/logs/*
+notebooks/images/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
