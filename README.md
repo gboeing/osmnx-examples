@@ -1,5 +1,7 @@
 # OSMnx Examples
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/jaakla/osmnx-examples/master)
+
 All of the examples are in this repo's [notebooks](notebooks) folder.
 
 OSMnx is a Python package to work with street networks: retrieve, construct,
