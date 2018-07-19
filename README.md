@@ -1,6 +1,6 @@
 # OSMnx Examples
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/jaakla/osmnx-examples/master)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/gboeing/osmnx-examples/master)
 
 All of the examples are in this repo's [notebooks](notebooks) folder.
 
