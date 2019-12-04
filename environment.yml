@@ -1,5 +1,6 @@
+name: osmnx-examples
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - osmnx
+  - osmnx=0.11
