@@ -2,7 +2,7 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gboeing/osmnx-examples/master)
 
-You can run these OSMnx examples interactively online with [Binder](https://mybinder.org/v2/gh/gboeing/osmnx-examples/master). All of the examples are in this repo's [notebooks](notebooks) folder.
+You can run these OSMnx example notebooks interactively online with [Binder](https://mybinder.org/v2/gh/gboeing/osmnx-examples/master) or locally with the official OSMnx [docker image](https://hub.docker.com/r/gboeing/osmnx). All of the examples are in this repo's [notebooks](notebooks) folder.
 
 OSMnx is a Python package to work with street networks: retrieve, model, analyze, and visualize street networks and other spatial data from OpenStreetMap.
 
