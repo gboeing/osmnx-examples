@@ -3,4 +3,4 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - osmnx=0.16.0
+  - osmnx=1.0.0
