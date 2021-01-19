@@ -1,6 +1,7 @@
-# OSMnx Examples
-
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gboeing/osmnx-examples/master?urlpath=lab)
+[![Build Status](https://github.com/gboeing/osmnx-examples/workflows/tests/badge.svg?branch=master)](https://github.com/gboeing/osmnx-examples/actions?query=workflow%3Atests)
+
+# OSMnx Examples
 
 [OSMnx](https://github.com/gboeing/osmnx) is a Python package to work with street networks and other spatial data from OpenStreetMap: retrieve, model, analyze, and visualize street networks as well as other infrastructure types, points of interest, building footprints, speed/travel time, elevation, and more.
 
