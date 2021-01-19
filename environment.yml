@@ -1,6 +1,7 @@
 name: osmnx-examples
 channels:
   - conda-forge
-  - defaults
 dependencies:
+  - jupyterlab
   - osmnx=1.0.1
+  - python-igraph
