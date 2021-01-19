@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
 
     defaults:
       run:
@@ -48,4 +48,12 @@ jobs:
         run: |
           conda list
           conda info --all
-          ipython -c "import osmnx; print('OSMnx version', osmnx.__version__)"
+          ipython -c "import igraph, osmnx; print('OSMnx version', osmnx.__version__)"
+
+      - name: Test notebooks
+        run: |
+          cd ./notebooks
+          rm -r -f *.py
+          jupyter nbconvert --to python *.ipynb
+          for f in *.py; do ipython "$f"; done
+          rm -r -f *.py
