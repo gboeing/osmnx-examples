@@ -13,6 +13,7 @@ jobs:
     name: ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest]
 
@@ -42,13 +43,19 @@ jobs:
           show-channel-urls: true
           channel-priority: strict
           activate-environment: osmnx-examples
-          environment-file: environment.yml
+          environment-file: environment-tests.yml
 
       - name: Test environment
         run: |
           conda list
           conda info --all
           ipython -c "import igraph, osmnx; print('OSMnx version', osmnx.__version__)"
+
+      - name: Lint notebooks
+        run: |
+          nbqa isort ./notebooks/*.ipynb --line-length 100 --sl --check-only
+          nbqa black ./notebooks/*.ipynb --line-length 100 --check --diff
+          nbqa flake8 ./notebooks/*.ipynb --max-line-length 100
 
       - name: Test notebooks
         run: |
