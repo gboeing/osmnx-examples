@@ -3,6 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - black
+  - descartes
   - flake8
   - isort
   - jupyterlab

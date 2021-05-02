@@ -2,6 +2,7 @@ name: osmnx-examples
 channels:
   - conda-forge
 dependencies:
+  - descartes
   - jupyterlab
   - osmnx=1.1.0
   - python-igraph
