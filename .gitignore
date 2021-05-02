@@ -1,3 +1,4 @@
+*.vrt
 keys.py
 notebooks/cache/*
 notebooks/data/*
