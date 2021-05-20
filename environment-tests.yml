@@ -8,5 +8,5 @@ dependencies:
   - isort
   - jupyterlab
   - nbqa
-  - osmnx=1.1.0
+  - osmnx=1.1.1
   - python-igraph
