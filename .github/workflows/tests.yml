@@ -17,7 +17,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         include:
-          - os: ubuntu
+          - os: ubuntu-latest
             environment-file: environment-tests.yml
             miniforge-variant: Mambaforge
             miniforge-version: "*"
