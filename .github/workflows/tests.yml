@@ -20,7 +20,7 @@ jobs:
           - os: ubuntu-latest
             environment-file: environment-tests.yml
             miniforge-variant: Mambaforge
-            miniforge-version: "*"
+            miniforge-version: 4.10.3-7
 
     defaults:
       run:
