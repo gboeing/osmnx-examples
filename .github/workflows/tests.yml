@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu]
+        os: ["ubuntu"]
         include:
           - os: ubuntu
             environment-file: environment-tests.yml
