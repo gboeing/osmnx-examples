@@ -15,9 +15,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["ubuntu"]
+        os: [ubuntu-latest]
         include:
-          - os: ubuntu
+          - os: ubuntu-latest
             environment-file: environment-tests.yml
             miniforge-variant: Mambaforge
             miniforge-version: 4.9.2-4
