@@ -16,6 +16,11 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
+        include:
+          - os: ubuntu
+            environment-file: environment-tests.yml
+            miniforge-variant: Mambaforge
+            miniforge-version: "*"
 
     defaults:
       run:
@@ -28,22 +33,15 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Cache conda
-        uses: actions/cache@v2
-        env:
-          CACHE_NUMBER: 0
-        with:
-          path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.yml') }}
-
-      - name: Setup conda environment
+      - name: Setup conda environment with mambaforge
         uses: conda-incubator/setup-miniconda@v2
         with:
-          use-only-tar-bz2: true  # required for caching
-          show-channel-urls: true
-          channel-priority: strict
+          condarc-file: ${{ matrix.condarc-file }}
+          environment-file: ${{ matrix.environment-file }}
+          miniforge-variant: ${{ matrix.miniforge-variant }}
+          miniforge-version: ${{ matrix.miniforge-version }}
+          use-mamba: true
           activate-environment: osmnx-examples
-          environment-file: environment-tests.yml
 
       - name: Test environment
         run: |
