@@ -15,12 +15,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu
             environment-file: environment-tests.yml
             miniforge-variant: Mambaforge
-            miniforge-version: 4.10.3-7
+            miniforge-version: 4.9.2-4
 
     defaults:
       run:
@@ -36,12 +36,12 @@ jobs:
       - name: Setup conda environment with mambaforge
         uses: conda-incubator/setup-miniconda@v2
         with:
+          use-mamba: true
+          activate-environment: osmnx-examples
           condarc-file: ${{ matrix.condarc-file }}
           environment-file: ${{ matrix.environment-file }}
           miniforge-variant: ${{ matrix.miniforge-variant }}
           miniforge-version: ${{ matrix.miniforge-version }}
-          use-mamba: true
-          activate-environment: osmnx-examples
 
       - name: Test environment
         run: |
