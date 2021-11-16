@@ -8,6 +8,6 @@ dependencies:
   - isort
   - jupyterlab
   - nbqa
-  - osmnx=1.1.1
+  - osmnx=1.1.2
   - pillow
   - python-igraph
