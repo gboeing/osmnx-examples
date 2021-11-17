@@ -10,4 +10,5 @@ dependencies:
   - nbqa
   - osmnx=1.1.1
   - pillow
+  - python=3.9.*
   - python-igraph
