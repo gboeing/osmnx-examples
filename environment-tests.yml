@@ -8,7 +8,7 @@ dependencies:
   - isort
   - jupyterlab
   - nbqa
-  - osmnx=1.1.2
+  - osmnx=1.2.0
   - pillow
-  - python=3.9.*
+  - python=3.10.*
   - python-igraph
