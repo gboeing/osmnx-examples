@@ -8,7 +8,8 @@ dependencies:
   - isort
   - jupyterlab
   - nbqa
-  - osmnx=1.2.2
+  - osmnx=1.2.3
   - pillow
   - python=3.10.*
   - python-igraph
+  - Shapely>=1.8,<2.0
