@@ -16,11 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        include:
-          - os: ubuntu-latest
-            environment-file: environment-tests.yml
-            miniforge-variant: Mambaforge
-            miniforge-version: 4.9.2-4
 
     defaults:
       run:
@@ -29,19 +24,19 @@ jobs:
     steps:
 
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 2
 
-      - name: Setup conda environment with mambaforge
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Setup Conda environment with Micromamba
+        uses: mamba-org/provision-with-micromamba@v14
         with:
-          use-mamba: true
-          activate-environment: osmnx-examples
-          condarc-file: ${{ matrix.condarc-file }}
-          environment-file: ${{ matrix.environment-file }}
-          miniforge-variant: ${{ matrix.miniforge-variant }}
-          miniforge-version: ${{ matrix.miniforge-version }}
+          cache-downloads: true
+          cache-env: true
+          channels: conda-forge
+          channel-priority: strict
+          environment-file: tests/environment-dev.yml
+          environment-name: osmnx-examples-dev
 
       - name: Test environment
         run: |
