@@ -35,8 +35,8 @@ jobs:
           cache-env: true
           channels: conda-forge
           channel-priority: strict
-          environment-file: tests/environment-dev.yml
-          environment-name: osmnx-examples-dev
+          environment-file: environment-tests.yml
+          environment-name: osmnx-examples
 
       - name: Test environment
         run: |
