@@ -1,0 +1,32 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=50]
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+        args: [--assume-in-merge]
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: no-commit-to-branch
+        args: [--branch, main]
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.6.0
+    hooks:
+     - id: nbqa-isort
+       additional_dependencies: [isort]
+       args: [--line-length=100, --sl]
+     - id: nbqa-black
+       additional_dependencies: [black]
+       args: [--line-length=100]
+     - id: nbqa-flake8
+       additional_dependencies: [flake8]
+       args: [--max-line-length=100]
