@@ -4,8 +4,7 @@ channels:
 dependencies:
   - descartes
   - jupyterlab
-  - osmnx=1.2.3
+  - osmnx=1.3.0
   - pillow
   - python=3.10.*
   - python-igraph
-  - Shapely>=1.8,<2.0
