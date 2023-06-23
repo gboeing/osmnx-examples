@@ -9,5 +9,6 @@ dependencies:
   - nbqa
   - osmnx=1.4.0
   - pillow
+  - pre-commit
   - python=3.11.*
   - python-igraph
