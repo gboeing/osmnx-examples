@@ -38,7 +38,7 @@ jobs:
 
       - name: Lint notebooks
         run: |
-          pre-commit run --all-files
+          SKIP=no-commit-to-branch pre-commit run --all-files
 
       - name: Test notebooks
         run: |
