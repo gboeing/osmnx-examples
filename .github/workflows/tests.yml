@@ -19,7 +19,7 @@ jobs:
 
     defaults:
       run:
-        shell: bash -l {0}
+        shell: bash -elo pipefail {0}
 
     steps:
 
@@ -33,7 +33,7 @@ jobs:
         with:
           cache-downloads: true
           cache-environment: true
-          environment-file: environment-tests.yml
+          environment-file: tests/environment-tests.yml
           post-cleanup: none
 
       - name: Lint notebooks
