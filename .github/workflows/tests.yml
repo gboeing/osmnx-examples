@@ -42,5 +42,5 @@ jobs:
           cd ./notebooks
           rm -r -f *.py
           jupyter nbconvert --to python *.ipynb
-          for f in *.py; do ipython "$f"; done
+          for f in *.py; do python "$f"; done
           rm -r -f *.py
