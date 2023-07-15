@@ -2,11 +2,7 @@ name: osmnx-examples
 channels:
   - conda-forge
 dependencies:
-  - black
-  - flake8
-  - isort
-  - jupyterlab
-  - nbqa
+  - nbconvert
   - osmnx=1.5.1
   - pillow
   - pre-commit
