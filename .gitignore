@@ -1,5 +1,5 @@
 *.vrt
-keys.py
+*.py
 notebooks/cache/*
 notebooks/data/*
 notebooks/logs/*
