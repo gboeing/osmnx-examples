@@ -2,8 +2,7 @@ name: osmnx-examples
 channels:
   - conda-forge
 dependencies:
-  - ipython
-  - nbconvert
+  - jupyter
   - osmnx=1.5.1
   - pillow
   - pre-commit
