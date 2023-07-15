@@ -7,9 +7,7 @@ on:
     branches: [main]
 
 jobs:
-
   build:
-
     name: ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -22,7 +20,6 @@ jobs:
         shell: bash -elo pipefail {0}
 
     steps:
-
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
