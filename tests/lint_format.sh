@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 pre-commit run --all-files
-jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace ./notebooks/*.ipynb
+jupyter nbconvert --clear-output --inplace ./notebooks/*.ipynb
