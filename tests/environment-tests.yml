@@ -7,7 +7,7 @@ dependencies:
   - isort
   - jupyterlab
   - nbqa
-  - osmnx=1.5.0
+  - osmnx=1.5.1
   - pillow
   - pre-commit
   - python=3.11.*
