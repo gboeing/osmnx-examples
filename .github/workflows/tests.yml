@@ -30,7 +30,7 @@ jobs:
         with:
           cache-downloads: true
           cache-environment: true
-          environment-file: tests/environment-tests.yml
+          environment-file: environment.yml
           post-cleanup: none
 
       - name: Lint notebooks

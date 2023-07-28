@@ -3,7 +3,8 @@ channels:
   - conda-forge
 dependencies:
   - jupyterlab
-  - osmnx=1.5.1
+  - osmnx=1.6.0
   - pillow
+  - pre-commit
   - python=3.11.*
   - python-igraph
