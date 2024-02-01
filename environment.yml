@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - jupyterlab
-  - osmnx=1.8.1
+  - osmnx=1.9.0
   - pillow
   - pre-commit
   - python=3.11.*
