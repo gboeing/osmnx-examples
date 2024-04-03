@@ -22,7 +22,7 @@ repos:
         types_or: [markdown, yaml]
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: "1.7.1"
+    rev: "1.8.5"
     hooks:
       - id: nbqa-isort
         additional_dependencies: [isort]
