@@ -20,7 +20,7 @@ dependencies:
   - jupyterlab
   - pillow
   - pre-commit
-  - python=3.12.*
+  - python=3.11.*
   - python-igraph
 
   # install OSMnx beta via pip
