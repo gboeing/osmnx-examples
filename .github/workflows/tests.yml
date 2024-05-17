@@ -23,25 +23,30 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - name: Create environment with Micromamba
         uses: mamba-org/setup-micromamba@v1
         with:
-          cache-downloads: true
           cache-environment: true
           environment-file: environment.yml
           post-cleanup: none
 
-      - name: Lint notebooks
-        run: |
-          SKIP=no-commit-to-branch pre-commit run --all-files
+      - name: Cache pre-commit
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit/
+          key: pre-commit-${{ matrix.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
+
+      - name: Run pre-commit checks
+        run: pre-commit run --all-files
+        env:
+          SKIP: no-commit-to-branch
 
       - name: Test notebooks
         run: |
+          ipython -c "import osmnx; print(osmnx.__version__)"
           cd ./notebooks
           rm -r -f *.py
           jupyter nbconvert --to python *.ipynb
-          for f in *.py; do ipython "$f"; done
+          for filename in *.py; do ipython "$filename"; done
           rm -r -f *.py

@@ -1,10 +1,29 @@
 name: osmnx-examples
 channels:
   - conda-forge
+
 dependencies:
+  # OSMnx required/optional dependencies
+  - gdal
+  - geopandas
+  - matplotlib
+  - networkx
+  - numpy
+  - pandas
+  - rasterio
+  - requests
+  - scipy
+  - scikit-learn
+  - shapely
+
+  # other packages needed for CI or running examples
   - jupyterlab
-  - osmnx=1.9.3
   - pillow
   - pre-commit
-  - python=3.11.*
+  - python=3.12.*
   - python-igraph
+
+  # install OSMnx beta via pip
+  - pip
+  - pip:
+      - osmnx==2.0.0b0
