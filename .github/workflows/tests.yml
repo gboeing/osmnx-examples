@@ -44,6 +44,7 @@ jobs:
 
       - name: Test notebooks
         run: |
+          ipython -c "import osmnx; print(osmnx.__version__)"
           cd ./notebooks
           rm -r -f *.py
           jupyter nbconvert --to python *.ipynb
