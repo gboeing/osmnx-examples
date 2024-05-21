@@ -2,7 +2,7 @@
 
 [![GitHub tag](https://img.shields.io/github/v/tag/gboeing/osmnx-examples?label=Uses+OSMnx)](https://github.com/gboeing/osmnx)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gboeing/osmnx-examples/main?urlpath=lab)
-[![Build Status](https://github.com/gboeing/osmnx-examples/workflows/tests/badge.svg?branch=main)](https://github.com/gboeing/osmnx-examples/actions?query=workflow%3Atests)
+[![Build Status](https://github.com/gboeing/osmnx-examples/workflows/tests/badge.svg?branch=main)](https://github.com/gboeing/osmnx-examples/actions/workflows/tests.yml)
 
 OSMnx 2.0 is in beta: read the [migration guide](https://github.com/gboeing/osmnx/issues/1123).
 
