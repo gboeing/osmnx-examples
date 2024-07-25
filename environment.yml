@@ -26,4 +26,4 @@ dependencies:
   # install OSMnx beta via pip
   - pip
   - pip:
-      - osmnx==2.0.0b0
+      - osmnx==2.0.0b1
