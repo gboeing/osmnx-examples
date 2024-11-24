@@ -3,27 +3,9 @@ channels:
   - conda-forge
 
 dependencies:
-  # OSMnx required/optional dependencies
-  - geopandas
-  - matplotlib
-  - networkx
-  - numpy
-  - pandas
-  - rasterio
-  - requests
-  - rio-vrt
-  - scipy
-  - scikit-learn
-  - shapely
-
-  # other packages needed for CI or running examples
   - jupyterlab
+  - osmnx
   - pillow
   - pre-commit
   - python=3.11.*
   - python-igraph
-
-  # install OSMnx beta via pip
-  - pip
-  - pip:
-      - osmnx==2.0.0b2
