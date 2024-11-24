@@ -4,7 +4,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gboeing/osmnx-examples/main?urlpath=lab)
 [![Build Status](https://github.com/gboeing/osmnx-examples/workflows/CI/badge.svg?branch=main)](https://github.com/gboeing/osmnx-examples/actions/workflows/tests.yml)
 
-
 OSMnx 2.0 is in beta: read the [migration guide](https://github.com/gboeing/osmnx/issues/1123).
 
 [OSMnx](https://github.com/gboeing/osmnx) is a Python package to easily download, model, analyze, and visualize street networks and other geospatial features from OpenStreetMap. You can download and model walking, driving, or biking networks with a single line of code then analyze and visualize them. You can just as easily work with urban amenities/points of interest, building footprints, transit stops, elevation data, street orientations, speed/travel time, and routing.
