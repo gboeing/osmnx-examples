@@ -5,6 +5,5 @@ channels:
 dependencies:
   - jupyterlab
   - osmnx=2.0.*
-  - pillow
   - pre-commit
   - python-igraph
