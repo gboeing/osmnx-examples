@@ -7,5 +7,4 @@ dependencies:
   - osmnx=2.0.*
   - pillow
   - pre-commit
-  - python=3.11.*
   - python-igraph
