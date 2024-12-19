@@ -19,7 +19,7 @@ repos:
     rev: "v0.8.2"
     hooks:
       - id: ruff
-        args: [--fix]
+        args: [--fix, --line-length=100, --extend-select=E, --extend-select=F, --extend-select=I]
       - id: ruff-format
         args: [--line-length=100]
 
