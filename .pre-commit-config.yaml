@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v5.0.0"
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
         args: [--maxkb=50]
@@ -16,12 +16,18 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.8.2"
+    rev: v0.8.4
     hooks:
       - id: ruff
-        args: [--fix, --line-length=100, --extend-select=E, --extend-select=F, --extend-select=I]
+        args: [--no-cache, --fix, --line-length=100, --select, "A,B,E,F,I,UP,W"]
       - id: ruff-format
-        args: [--line-length=100]
+        args: [--no-cache, --line-length=100]
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: [--strict, -d, relaxed]
 
   - repo: local
     hooks:
