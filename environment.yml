@@ -4,6 +4,6 @@ channels:
 
 dependencies:
   - jupyterlab
-  - osmnx=2.0.*
+  - osmnx=2.0.1
   - pre-commit
   - python-igraph
