@@ -19,7 +19,7 @@ repos:
     rev: v0.8.4
     hooks:
       - id: ruff
-        args: [--no-cache, --fix, --line-length=100, --select, "A,B,E,F,I,UP,W"]
+        args: [--no-cache, --fix, --line-length=100, --select, 'A,B,E,F,I,UP,W']
       - id: ruff-format
         args: [--no-cache, --line-length=100]
 
@@ -27,7 +27,13 @@ repos:
     rev: v1.35.1
     hooks:
       - id: yamllint
-        args: [--strict, -d, relaxed]
+        args:
+          - --strict
+          - >
+            -d={extends: default, rules: {
+            document-start: disable,
+            quoted-strings: {quote-type: single, required: only-when-needed},
+            truthy: {check-keys: false}}}
 
   - repo: local
     hooks:
@@ -36,4 +42,4 @@ repos:
         entry: jupyter nbconvert
         language: system
         types: [jupyter]
-        args: ["--clear-output", "--inplace"]
+        args: [--clear-output, --inplace]
