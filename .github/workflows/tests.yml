@@ -1,1 +1,52 @@
-name: CIon:  push:    branches: [main]  pull_request:    branches: [main]  workflow_dispatch:jobs:  build:    name: ${{ matrix.os }}    runs-on: ${{ matrix.os }}    strategy:      fail-fast: false      matrix:        os: [macos-latest, ubuntu-latest, windows-latest]    defaults:      run:        shell: bash -elo pipefail {0}    steps:      - name: Checkout repo        uses: actions/checkout@v4      - name: Create environment with Micromamba        uses: mamba-org/setup-micromamba@v2        with:          cache-environment: true          environment-file: environment.yml          post-cleanup: none      - name: Cache pre-commit        uses: actions/cache@v4        with:          path: ~/.cache/pre-commit/          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}      - name: Run pre-commit checks        run: pre-commit run --all-files        env:          SKIP: no-commit-to-branch      - name: Test notebooks        run: |          ipython -c "import osmnx; print(osmnx.__version__)"          cd ./notebooks          rm -r -f *.py          jupyter nbconvert --to python *.ipynb          for filename in *.py; do ipython "$filename"; done          rm -r -f *.py
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
+    defaults:
+      run:
+        shell: bash -elo pipefail {0}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create environment with Micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          cache-environment: true
+          environment-file: environment.yml
+          post-cleanup: none
+
+      - name: Cache pre-commit
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit/
+          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+
+      - name: Run pre-commit checks
+        run: pre-commit run --all-files
+        env:
+          SKIP: no-commit-to-branch
+
+      - name: Test notebooks
+        run: |
+          ipython -c "import osmnx; print(osmnx.__version__)"
+          cd ./notebooks
+          rm -r -f *.py
+          jupyter nbconvert --to python *.ipynb
+          for filename in *.py; do ipython "$filename"; done
+          rm -r -f *.py

@@ -1,1 +1,45 @@
-repos:  - repo: https://github.com/pre-commit/pre-commit-hooks    rev: v5.0.0    hooks:      - id: check-added-large-files        args: [--maxkb=50]      - id: check-case-conflict      - id: check-merge-conflict        args: [--assume-in-merge]      - id: check-yaml      - id: end-of-file-fixer      - id: fix-byte-order-marker      - id: mixed-line-ending      - id: no-commit-to-branch        args: [--branch, main]      - id: trailing-whitespace  - repo: https://github.com/astral-sh/ruff-pre-commit    rev: v0.9.6    hooks:      - id: ruff        args: [--no-cache, --fix, --line-length=100, --select, 'A,B,E,F,I,UP,W']      - id: ruff-format        args: [--no-cache, --line-length=100]  - repo: https://github.com/adrienverge/yamllint    rev: v1.35.1    hooks:      - id: yamllint        args:          - --strict          - >            -d={extends: default, rules: {            document-start: disable,            quoted-strings: {quote-type: single, required: only-when-needed},            truthy: {check-keys: false}}}  - repo: local    hooks:      - id: nbconvert        name: clear notebook output        entry: jupyter nbconvert        language: system        types: [jupyter]        args: [--clear-output, --inplace]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=50]
+      - id: check-case-conflict
+      - id: check-merge-conflict
+        args: [--assume-in-merge]
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: no-commit-to-branch
+        args: [--branch, main]
+      - id: trailing-whitespace
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.6
+    hooks:
+      - id: ruff
+        args: [--no-cache, --fix, --line-length=100, --select, 'A,B,E,F,I,UP,W']
+      - id: ruff-format
+        args: [--no-cache, --line-length=100]
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args:
+          - --strict
+          - >
+            -d={extends: default, rules: {
+            document-start: disable,
+            quoted-strings: {quote-type: single, required: only-when-needed},
+            truthy: {check-keys: false}}}
+
+  - repo: local
+    hooks:
+      - id: nbconvert
+        name: clear notebook output
+        entry: jupyter nbconvert
+        language: system
+        types: [jupyter]
+        args: [--clear-output, --inplace]
