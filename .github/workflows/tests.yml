@@ -47,4 +47,4 @@ jobs:
         run: |
           ipython -c "import osmnx; print(osmnx.__version__)"
           cd ./notebooks
-          jupyter nbconvert --execute --inplace *.ipynb
+          jupyter nbconvert --execute --inplace --ExecutePreprocessor.kernel_name=python3 *.ipynb
