@@ -45,6 +45,7 @@ jobs:
 
       - name: Test notebooks
         run: |
-          ipython -c "import osmnx; print(osmnx.__version__)"
           cd ./notebooks
-          jupyter nbconvert --execute --inplace --ExecutePreprocessor.kernel_name=python3 *.ipynb
+          python -m ipykernel install --user --name ox --display-name "Python (ox)"
+          ipython -c "import osmnx; print(osmnx.__version__)"
+          jupyter nbconvert --execute --inplace --ExecutePreprocessor.kernel_name=ox *.ipynb
