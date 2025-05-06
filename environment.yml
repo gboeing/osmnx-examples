@@ -18,4 +18,4 @@ dependencies:
   - shapely
   - pip
   - pip:
-      - osmnx=2.0.3
+      - osmnx==2.0.3
