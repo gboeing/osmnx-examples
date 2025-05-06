@@ -13,5 +13,5 @@ This gallery contains step-by-step usage tutorials and feature demonstrations as
 ### More info:
 
 - [Documentation](https://osmnx.readthedocs.io/)
-- [Journal article and citation info](https://geoffboeing.com/publications/osmnx-paper/)
+- [Journal article and citation info](https://doi.org/10.1111/gean.70009)
 - [Code repository](https://github.com/gboeing/osmnx)
