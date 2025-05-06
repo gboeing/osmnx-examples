@@ -1,9 +1,21 @@
 name: osmnx-examples
 channels:
   - conda-forge
-
 dependencies:
+  - geopandas
   - jupyterlab
-  - osmnx=2.0.2
+  - matplotlib
+  - networkx
+  - numpy
+  - pandas
   - pre-commit
   - python-igraph
+  - rasterio
+  - requests
+  - rio-vrt
+  - scikit-learn
+  - scipy
+  - shapely
+  - pip
+  - pip:
+      - osmnx=2.0.3
