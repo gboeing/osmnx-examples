@@ -1,0 +1,23 @@
+[project]
+name = "osmnx-examples"
+version = "0.0.0"
+description = "Gallery of OSMnx tutorials, usage examples, and feature demonstations. "
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "geopandas",
+    "jupyterlab",
+    "matplotlib",
+    "networkx",
+    "numpy",
+    "osmnx==2.0.4",
+    "pandas",
+    "pre-commit",
+    "python-igraph",
+    "rasterio",
+    "requests",
+    "rio-vrt",
+    "scikit-learn",
+    "scipy",
+    "shapely",
+]

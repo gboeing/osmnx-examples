@@ -4,6 +4,7 @@ notebooks/cache/*
 notebooks/data/*
 notebooks/logs/*
 notebooks/images/*
+uv.lock
 
 # Compiled source
 *.com
