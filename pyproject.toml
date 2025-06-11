@@ -1,9 +1,5 @@
 [project]
-name = "osmnx-examples"
-version = "2.0.4"
-description = "Gallery of OSMnx tutorials, usage examples, and feature demonstations."
-readme = "README.md"
-requires-python = ">=3.9"
+authors = [{ name = "Geoff Boeing", email = "boeing@usc.edu" }]
 dependencies = [
     "folium",
     "geopandas",
@@ -24,3 +20,20 @@ dependencies = [
     "scipy",
     "shapely",
 ]
+description = "Gallery of OSMnx tutorials, usage examples, and feature demonstations."
+license = "MIT"
+license-files = ["LICENSE.txt"]
+name = "osmnx-examples"
+readme = "README.md"
+requires-python = ">=3.9"
+version = "2.0.4"
+
+[tool.ruff]
+cache-dir = "~/.cache/pre-commit/ruff"
+line-length = 100
+
+[tool.ruff.lint]
+extend-select = ["A", "B", "E", "F", "I", "UP", "W"]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 110 # line length + 10% since it isn't a hard upper bound
