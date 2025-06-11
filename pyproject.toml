@@ -8,6 +8,7 @@ dependencies = [
     "geopandas",
     "jupyterlab",
     "matplotlib",
+    "nbdime",
     "networkx",
     "numpy",
     "osmnx==2.0.4",
