@@ -1,32 +1,16 @@
 [project]
 authors = [{ name = "Geoff Boeing", email = "boeing@usc.edu" }]
-dependencies = [
-    "folium",
-    "geopandas",
-    "jupyterlab",
-    "mapclassify",
-    "matplotlib",
-    "nbdime",
-    "networkx",
-    "numpy",
-    "osmnx==2.0.4",
-    "pandas",
-    "pre-commit",
-    "python-igraph",
-    "rasterio",
-    "requests",
-    "rio-vrt",
-    "scikit-learn",
-    "scipy",
-    "shapely",
-]
-description = "Gallery of OSMnx tutorials, usage examples, and feature demonstations."
+dependencies = ["osmnx[entropy,examples,neighbors,raster,visualization]==2.0.4"]
+description = "Gallery of OSMnx tutorials, usage examples, and feature demonstrations."
 license = "MIT"
 license-files = ["LICENSE.txt"]
 name = "osmnx-examples"
 readme = "README.md"
 requires-python = ">=3.9"
-version = "2.0.4"
+version = "2.0.4" # match pinned version above
+
+[dependency-groups]
+dev = ["jupyterlab", "nbdime", "pre-commit"]
 
 [tool.ruff]
 cache-dir = "~/.cache/pre-commit/ruff"
