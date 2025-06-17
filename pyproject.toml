@@ -1,6 +1,11 @@
 [project]
 authors = [{ name = "Geoff Boeing", email = "boeing@usc.edu" }]
-dependencies = ["osmnx[entropy,examples,neighbors,raster,visualization]==2.0.4"]
+dependencies = [
+    "folium",
+    "mapclassify",
+    "osmnx[entropy,neighbors,raster,visualization]==2.0.4",
+    "python-igraph"
+]
 description = "Gallery of OSMnx tutorials, usage examples, and feature demonstrations."
 license = "MIT"
 license-files = ["LICENSE.txt"]
