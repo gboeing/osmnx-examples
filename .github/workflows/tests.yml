@@ -34,7 +34,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv sync
+          uv sync --dev
           uv pip check
           uv pip list
           uv pip show osmnx
