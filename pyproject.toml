@@ -11,7 +11,7 @@ version = "2.0.5" # match pinned version above
 
 [dependency-groups]
 dev = ["nbdime", "pre-commit"]
-notebooks = ["folium>=0.12", "jupyterlab>=3.0", "mapclassify>=2.5", "igraph>=0.9"]
+notebooks = ["folium", "jupyterlab", "mapclassify", "igraph"]
 
 [tool.ruff]
 cache-dir = "~/.cache/pre-commit/ruff"
