@@ -1,6 +1,6 @@
 [project]
 authors = [{ name = "Geoff Boeing", email = "boeing@usc.edu" }]
-dependencies = ["osmnx[all]==2.0.5"]
+dependencies = ["osmnx[entropy,neighbors,raster,visualization]==2.0.4"]
 description = "Gallery of OSMnx tutorials, usage examples, and feature demonstrations."
 license = "MIT"
 license-files = ["LICENSE.txt"]
@@ -11,6 +11,7 @@ version = "2.0.5" # match pinned version above
 
 [dependency-groups]
 dev = ["nbdime", "pre-commit"]
+notebooks = ["folium>=0.12", "jupyterlab>=3.0", "mapclassify>=2.5", "igraph>=0.9"]
 
 [tool.ruff]
 cache-dir = "~/.cache/pre-commit/ruff"
