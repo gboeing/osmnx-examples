@@ -33,12 +33,7 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: |
-          uv sync --all-extras --all-groups
-          uv pip check
-          uv pip list
-          uv pip show osmnx
-          uv run python --version
+        run: uv sync --all-extras --all-groups --verbose
 
       - name: Cache pre-commit
         uses: actions/cache@v4
