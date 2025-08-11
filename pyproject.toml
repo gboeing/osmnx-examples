@@ -1,13 +1,13 @@
 [project]
 authors = [{ name = "Geoff Boeing", email = "boeing@usc.edu" }]
-dependencies = ["osmnx[all]==2.0.5"]
+dependencies = ["osmnx[all]==2.0.6"]
 description = "Gallery of OSMnx tutorials, usage examples, and feature demonstrations."
 license = "MIT"
 license-files = ["LICENSE.txt"]
 name = "osmnx-examples"
 readme = "README.md"
 requires-python = ">=3.9"
-version = "2.0.5" # match pinned version above
+version = "2.0.6" # match pinned version above
 
 [project.optional-dependencies]
 all = ["folium", "jupyterlab", "mapclassify", "igraph"]
