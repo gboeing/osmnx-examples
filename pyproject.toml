@@ -13,10 +13,10 @@ version = "2.1.0" # match pinned version above
 all = ["folium", "jupyterlab", "mapclassify", "igraph"]
 
 [dependency-groups]
-dev = ["nbdime", "pre-commit"]
+dev = ["nbdime", "prek"]
 
 [tool.ruff]
-cache-dir = "~/.cache/pre-commit/ruff"
+cache-dir = "~/.cache/prek/ruff"
 line-length = 100
 
 [tool.ruff.lint]
