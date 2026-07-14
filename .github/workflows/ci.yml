@@ -18,7 +18,7 @@ concurrency:
 jobs:
   CI:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 90
     env:
       UV_LOCKED: 1
     defaults:

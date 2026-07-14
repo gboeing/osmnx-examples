@@ -1,0 +1,22 @@
+---
+name: Keep cache alive
+
+permissions:
+  contents: read
+
+# Github only maintains cache files for free account public repos for 7 days,
+# so this runs every Mon and Thu to update the cache's last accessed time
+on:  # yamllint disable-line rule:truthy
+  schedule:
+    - cron: 0 5 * * 1,4
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore newest OSMnx cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ./notebooks/cache
+          key: osmnx-cache-keepalive-${{ github.run_id }}
+          restore-keys: osmnx-cache-
