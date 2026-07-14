@@ -1,5 +1,6 @@
-*.vrt
+*.code-workspace
 *.py
+*.vrt
 notebooks/cache/*
 notebooks/data/*
 notebooks/logs/*
