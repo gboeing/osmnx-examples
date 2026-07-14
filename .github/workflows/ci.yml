@@ -18,10 +18,9 @@ concurrency:
 jobs:
   CI:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
-    strategy:
-      fail-fast: false
-
+    timeout-minutes: 120
+    env:
+      UV_LOCKED: 1
     defaults:
       run:
         shell: bash -elo pipefail {0}
@@ -39,6 +38,17 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras --all-groups
 
+      # use a unique cache key for the current run attempt, ensuring it can
+      # later be saved. because that exact key is new, `restore-keys:` loads
+      # the newest cache from previous attempts as starting point to add to.
+      - name: Restore OSMnx cache
+        id: osmnx-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ./notebooks/cache
+          key: osmnx-cache-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: osmnx-cache-
+
       - name: Cache pre-commit
         uses: actions/cache@v6
         with:
@@ -50,9 +60,20 @@ jobs:
         env:
           SKIP: no-commit-to-branch
 
+      # test notebooks in parallel across 3 jobs with GNU parallel
       - name: Test notebooks
         run: |
           cd ./notebooks
+          mkdir -p data images
           uv run python -c "import osmnx; print(osmnx.__version__)"
           uv run jupyter nbconvert --to python *.ipynb
-          for filename in *.py; do uv run ipython "$filename"; done
+          parallel -j3 --tag --halt now,fail=1 'uv run ipython {}' ::: *.py
+
+      # allow notebooks test runs to fail, but still save partial cache. this
+      # saves after ordinary failures but not if job is canceled or times out.
+      - name: Save notebook cache
+        if: always()
+        uses: actions/cache/save@v6
+        with:
+          path: ./notebooks/cache
+          key: ${{ steps.osmnx-cache.outputs.cache-primary-key }}
