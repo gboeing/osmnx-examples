@@ -67,7 +67,7 @@ jobs:
           mkdir -p data images
           uv run python -c "import osmnx; print(osmnx.__version__)"
           uv run jupyter nbconvert --to python *.ipynb
-          parallel -j3 --tag --halt now,fail=1 'uv run ipython {}' ::: *.py
+          parallel -j3 --line-buffer 'uv run ipython {}' ::: *.py
 
       # allow notebooks test runs to fail, but still save partial cache. this
       # saves after ordinary failures but not if job is canceled or times out.
