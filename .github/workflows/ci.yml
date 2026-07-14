@@ -1,0 +1,79 @@
+---
+name: CI
+
+permissions:
+  contents: read
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      UV_LOCKED: 1
+    defaults:
+      run:
+        shell: bash -elo pipefail {0}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          cache-dependency-glob: uv.lock
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --all-extras --all-groups
+
+      # use a unique cache key for the current run attempt, ensuring it can
+      # later be saved. because that exact key is new, `restore-keys:` loads
+      # the newest cache from previous attempts as starting point to add to.
+      - name: Restore OSMnx cache
+        id: osmnx-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ./notebooks/cache
+          key: osmnx-cache-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: osmnx-cache-
+
+      - name: Cache pre-commit
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/prek/
+          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+
+      - name: Run pre-commit checks
+        run: uv run prek run --all-files
+        env:
+          SKIP: no-commit-to-branch
+
+      # test notebooks in parallel across 3 jobs with GNU parallel
+      - name: Test notebooks
+        run: |
+          cd ./notebooks
+          mkdir -p data images
+          uv run python -c "import osmnx; print(osmnx.__version__)"
+          uv run jupyter nbconvert --to python *.ipynb
+          parallel -j3 --line-buffer --tag 'uv run ipython {}' ::: *.py
+
+      # allow notebooks test runs to fail, but still save partial cache. this
+      # saves after ordinary failures but not if job is canceled or times out.
+      - name: Save notebook cache
+        if: always()
+        uses: actions/cache/save@v6
+        with:
+          path: ./notebooks/cache
+          key: ${{ steps.osmnx-cache.outputs.cache-primary-key }}
