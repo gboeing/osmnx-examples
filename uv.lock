@@ -1671,7 +1671,7 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
-all = [
+examples = [
     { name = "folium" },
     { name = "igraph" },
     { name = "jupyterlab" },
@@ -1688,13 +1688,13 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "folium", marker = "extra == 'all'" },
-    { name = "igraph", marker = "extra == 'all'" },
-    { name = "jupyterlab", marker = "extra == 'all'" },
-    { name = "mapclassify", marker = "extra == 'all'" },
+    { name = "folium", marker = "extra == 'examples'" },
+    { name = "igraph", marker = "extra == 'examples'" },
+    { name = "jupyterlab", marker = "extra == 'examples'" },
+    { name = "mapclassify", marker = "extra == 'examples'" },
     { name = "osmnx", extras = ["all"], specifier = "==2.1.0" },
 ]
-provides-extras = ["all"]
+provides-extras = ["examples"]
 
 [package.metadata.requires-dev]
 dev = [
