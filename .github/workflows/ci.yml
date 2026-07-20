@@ -60,14 +60,11 @@ jobs:
         env:
           SKIP: no-commit-to-branch
 
-      # test notebooks in parallel across 3 jobs with GNU parallel
+      # test notebooks serially until the cache is complete, then in parallel
       - name: Test notebooks
         run: |
           cd ./notebooks
-          mkdir -p data images
-          uv run python -c "import osmnx; print(osmnx.__version__)"
-          uv run jupyter nbconvert --to python *.ipynb
-          parallel -j3 --line-buffer --tag 'uv run ipython {}' ::: *.py
+          ./run_notebooks.sh
 
       # allow notebooks test runs to fail, but still save partial cache. this
       # saves after ordinary failures but not if job is canceled or times out.
