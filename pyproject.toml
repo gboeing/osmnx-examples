@@ -13,14 +13,14 @@ version = "2.1.0" # match pinned version above
 all = ["folium", "jupyterlab", "mapclassify", "igraph"]
 
 [dependency-groups]
-dev = ["nbdime", "prek"]
+dev = ["ipython", "nbconvert", "nbdime", "prek"]
 
 [tool.ruff]
 cache-dir = "~/.cache/prek/ruff"
 line-length = 100
 
 [tool.ruff.lint]
-extend-select = ["A", "B", "E", "F", "I", "UP", "W"]
+extend-select = ["A", "B", "E", "F", "I", "RUF200", "UP", "W"]
 
 [tool.ruff.lint.pycodestyle]
 max-line-length = 110 # line length + 10% since it isn't a hard upper bound
