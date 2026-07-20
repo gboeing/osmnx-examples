@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export MPLBACKEND="Agg"
+
 CACHE_DIR="./cache"
 CACHE_READY_FILE="${CACHE_DIR}/.cache_ready"
 
