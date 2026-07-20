@@ -60,11 +60,8 @@ jobs:
         env:
           SKIP: no-commit-to-branch
 
-      # test notebooks serially until the cache is complete, then in parallel
       - name: Test notebooks
-        run: |
-          cd ./notebooks
-          ./run_notebooks.sh
+        run: cd notebooks && bash run_notebooks.sh
 
       # allow notebooks test runs to fail, but still save partial cache. this
       # saves after ordinary failures but not if job is canceled or times out.
