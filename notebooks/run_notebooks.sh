@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+# remove temp Python files generated from notebooks whenever script exits
+trap 'rm -f ./*.py' EXIT
+
 export MPLBACKEND="Agg"
 CACHE_DIR="./cache"
 CACHE_READY_FILE="${CACHE_DIR}/.cache_ready"
