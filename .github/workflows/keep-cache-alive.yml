@@ -5,10 +5,11 @@ permissions:
   contents: read
 
 # Github only maintains cache files for free account public repos for 7 days,
-# so this runs every Mon and Thu to update the cache's last accessed time
+# so this runs daily to update the cache's last accessed time
 on:  # yamllint disable-line rule:truthy
   schedule:
-    - cron: 19 5 * * 1,4
+    - cron: 23 4 * * *
+  workflow_dispatch:
 
 jobs:
   keepalive:
@@ -20,3 +21,4 @@ jobs:
           path: ./notebooks/cache
           key: osmnx-cache-keepalive-${{ github.run_id }}
           restore-keys: osmnx-cache-
+          fail-on-cache-miss: true
