@@ -1723,7 +1723,6 @@ examples = [
     { name = "igraph" },
     { name = "jupyterlab" },
     { name = "mapclassify" },
-    { name = "osmium" },
 ]
 
 [package.dev-dependencies]
@@ -1740,7 +1739,6 @@ requires-dist = [
     { name = "igraph", marker = "extra == 'examples'" },
     { name = "jupyterlab", marker = "extra == 'examples'" },
     { name = "mapclassify", marker = "extra == 'examples'" },
-    { name = "osmium", marker = "extra == 'examples'" },
     { name = "osmnx", extras = ["all"], specifier = "==2.2.0" },
 ]
 provides-extras = ["examples"]

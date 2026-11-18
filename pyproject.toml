@@ -10,7 +10,7 @@ requires-python = ">=3.12"
 version = "2.2.0" # match pinned version above
 
 [project.optional-dependencies]
-examples = ["folium", "jupyterlab", "mapclassify", "igraph", "osmium"]
+examples = ["folium", "jupyterlab", "mapclassify", "igraph"]
 
 [dependency-groups]
 dev = ["ipython", "nbconvert", "nbdime", "prek"]
